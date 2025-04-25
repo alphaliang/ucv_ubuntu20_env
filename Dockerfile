@@ -47,7 +47,8 @@ RUN cd /tmp \
     && wget https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tgz \
     && tar -xzf Python-3.8.6.tgz \
     && cd Python-3.8.6 \
-    && ./configure --with-openssl=/usr/local/openssl \
+    # --with-openssl=/usr/local/openssl  --enable-shared
+    && ./configure\
     && make -j$(nproc) \
     && make altinstall \
     && cd /tmp \
