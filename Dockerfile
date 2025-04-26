@@ -91,8 +91,8 @@ RUN cd /tmp \
         && rm -rf /tmp/googletest-release-1.10.0 /tmp/release-1.10.0.zip
 
 # Make sure the Python SSL module works and install requests
-RUN ldconfig && \
-    python3 -m pip install --no-cache-dir requests pyyaml && \
+#ldconfig && \
+RUN python3 -m pip install --no-cache-dir requests pyyaml && \
     python3 -c "import requests; print(requests.get('https://www.google.com').status_code)"  
 
 # Verify installations
