@@ -66,16 +66,21 @@ RUN apt-get update && apt-get install -y \
 #    ln -sf /usr/local/bin/pip3.8 /usr/local/bin/pip3
 
 # Download, build, and install CMake 4.0.0
-RUN cd /tmp \
-    && wget https://cmake.org/files/v4.0/cmake-4.0.0.tar.gz \
-    && tar -xzvf cmake-4.0.0.tar.gz \
-    && cd cmake-4.0.0 \
-    && ./bootstrap --prefix=/usr/local \
-    && make -j$(nproc) \
-    && make install \
-    && cd / \
-    && rm -rf /tmp/cmake-4.0.0 /tmp/cmake-4.0.0.tar.gz
+RUN cd /tmp && wget https://github.com/Kitware/CMake/releases/download/v4.0.1/cmake-4.0.1-linux-x86_64.sh \
+    && chmod +x cmake-4.0.1-linux-x86_64.sh \
+    && ./cmake-4.0.1-linux-x86_64.sh --skip-license --prefix=/usr/local \
+    && rm -f /tmp/*
 
+#RUN cd /tmp \
+#    && wget https://cmake.org/files/v4.0/cmake-4.0.0.tar.gz \
+#    && tar -xzvf cmake-4.0.0.tar.gz \
+#    && cd cmake-4.0.0 \
+#    && ./bootstrap --prefix=/usr/local \
+#    && make -j$(nproc) \
+#    && make install \
+#    && cd / \
+#    && rm -rf /tmp/cmake-4.0.0 /tmp/cmake-4.0.0.tar.gz
+#
 # Download, build, and install GoogleTest
     
 RUN cd /tmp \
