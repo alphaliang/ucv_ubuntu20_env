@@ -92,8 +92,8 @@ RUN cd /tmp \
 
 # Make sure the Python SSL module works and install requests
 #ldconfig && \
-RUN python3 -m pip install --no-cache-dir requests pyyaml && \
-    python3 -c "import requests; print(requests.get('https://www.google.com').status_code)"  
+RUN python3 -m pip install --no-cache-dir requests pyyaml 
+#RUN python3 -c "import requests; print(requests.get('https://www.google.com').status_code)"  
 
 # Verify installations
 #RUN python3 --version && \
